@@ -1,5 +1,3 @@
-# encrypt-decrypt-string-in-c-sharp
-
 Encrypt and Decrypt a string in C#
 ===============================================
 
