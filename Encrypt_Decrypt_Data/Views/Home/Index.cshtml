@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Encrypt and Decrypt a string in C#</h1>
+    <p class="lead"><a href="https://msdn.microsoft.com/en-us/library/system.security.cryptography.rijndaelmanaged(v=vs.110).aspx" target="_blank"><strong>Rijndael</strong></a> algorithm is used in <i>StringCipher</i> class for Encryption and Decryption.</p>    
+    
+    <p>1. In StringCipher.cs file replace <strong>initVectorBytes</strong> value with your unique key.<br /></p>
+    <h5> // private static readonly byte[] initVectorBytes = Encoding.ASCII.GetBytes("<strong>YOUR UNIQUE KEY</strong>");<br /></h5>
+    <p>2. Use a unique value (<strong>passPhrase</strong>) for each Encrytion and Decription, (<strong>passPhrase</strong>) is a kind of password which is used to Encrypt and Decrypt.
+        You must use same (<strong>passPhrase</strong>) value to Decipher a text which was used to Cipher.
+    </p>
+    <h5>// StringCipher.Encrypt("textToCipher", "<strong>UNIQUE PASSWORD</strong>");</h5>
+    <h5>// StringCipher.Decrypt("textToDecipher", "<strong>UNIQUE PASSWORD</strong>");</h5>
+</div>
+
+<div class="row">
+    
+    <div class="col-md-4">
+        <h2>Encrypt Value</h2>
+        <p>You can Encrypt value</p>
+        <p><a class="btn btn-default" href="/Home/EncryptValue">Click here &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Decrypt Value</h2>
+        <p>YYou can Decrypt value</p>
+        <p><a class="btn btn-default" href="/Home/DecryptValue">Click here &raquo;</a></p>
+    </div>
+</div>

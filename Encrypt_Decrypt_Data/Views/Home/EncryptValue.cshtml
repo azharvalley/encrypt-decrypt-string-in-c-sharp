@@ -1,0 +1,109 @@
+﻿@model Encrypt_Decrypt_Data.Models.CardModel
+
+@{
+    ViewBag.Title = "Encrypt Value";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("EncryptValue", "Home", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()
+
+    <div class="col-sm-12">
+        <h4>Credit Card Information</h4>
+    </div>
+
+    <div class="col-sm-12">
+        <div class="col-sm-2">
+            <label>Credit Card Number</label>
+        </div>
+        <div class="col-sm-10">
+            <div class="form-group">
+
+
+                @Html.TextBoxFor(m => m.CardNumber, new { @class = "form-control conatct-form", @placeholder = "Credit Card Number", @maxlength = "16" })
+                @Html.ValidationMessageFor(m => m.CardNumber)
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="clearfix"></div>
+
+    <div class="col-sm-12">
+        <div class="col-sm-2">
+            <label>Card Expiry Month</label>
+        </div>
+        <div class="col-sm-10">
+            <div class="form-group">
+
+
+                @Html.DropDownListFor(m => m.ExpMonth, Encrypt_Decrypt_Data.Models.CardModel.GetMonthList(), new { @class = "form-control conatct-form" })
+                @Html.ValidationMessageFor(m => m.ExpMonth)
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12">
+        <div class="col-sm-2">
+            <label>Card Expiry Year</label>
+        </div>
+        <div class="col-sm-10">
+            <div class="form-group">
+
+
+                @Html.DropDownListFor(m => m.ExpYear, Encrypt_Decrypt_Data.Models.CardModel.GetYearList(), new { @class = "form-control conatct-form" })
+                @Html.ValidationMessageFor(m => m.ExpYear)
+            </div>
+        </div>
+    </div>
+
+
+    <div class="clearfix"></div>
+
+
+    <div class="col-sm-12">
+        <div class="col-sm-2">
+            <label>CVV</label>
+        </div>
+        <div class="col-sm-10">
+            <div class="form-group">
+
+                @Html.TextBoxFor(m => m.CVVCode, new { @class = "form-control conatct-form", @placeholder = "Card Verification Number", @title = "Card Verification Number", @maxlength = "4" })
+                @Html.ValidationMessageFor(m => m.CVVCode)
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12">
+        <div class="col-sm-2">
+
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <input type="submit" class="btn-danger" value="Encrypt">
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+}
+
+
+
+
+<div class="jumbotron">
+    <h1>Encrypted Value</h1>
+    <p>Card Number: <span style="color:#0925a7">@ViewBag.CardNumber</span></p>
+    <p>Expiry Month: <span style="color:#0925a7">@ViewBag.ExpMonth</span></p>
+    <p>Expiry Year: <span style="color:#0925a7">@ViewBag.ExpYear</span></p>
+</div>
+
+
+<style>
+    span.field-validation-error{
+    color:#ff0000;
+    }
+</style>

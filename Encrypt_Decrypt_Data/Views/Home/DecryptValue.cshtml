@@ -1,0 +1,81 @@
+﻿@model Encrypt_Decrypt_Data.Models.EncryptedCard
+@{
+    ViewBag.Title = "Decrypt Value";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("DecryptValue", "Home", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()
+
+    <div class="col-sm-12">
+        <h4>Encrypted Credit Card Information</h4>
+    </div>
+
+    <div class="col-sm-12">
+        <div class="col-sm-3">
+            <label>Encrypted Credit Card Number:</label>
+        </div>
+        <div class="col-sm-9">
+            <div class="form-group">
+                @Html.TextBoxFor(m => m.CardNumber, new { @class = "form-control conatct-form", @readonly="readonly"})
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="clearfix"></div>
+    <div class="col-sm-12">
+        <div class="col-sm-3">
+            <label>Encrypted Card Expiry Month:</label>
+        </div>
+        <div class="col-sm-9">
+            <div class="form-group">
+
+                @Html.TextBoxFor(m => m.ExpMonth, new { @class = "form-control conatct-form", @readonly = "readonly" })
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <div class="col-sm-3">
+            <label>Encrypted Card Expiry Year:</label>
+        </div>
+        <div class="col-sm-9">
+            <div class="form-group">
+
+                @Html.TextBoxFor(m => m.ExpYear, new { @class = "form-control conatct-form" , @readonly = "readonly" })
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="col-sm-12">
+        <div class="col-sm-3">
+           
+        </div>
+        <div class="col-sm-9">
+            <div class="form-group">
+                <input type="submit" class="btn-danger" value="Decrypt">
+            </div>
+        </div>
+    </div>
+
+
+       
+
+        <div class="clearfix"></div>
+        }
+
+
+
+
+        <div class="jumbotron">
+            <h1>Decrypted Value</h1>
+            <p>Card Number: <span style="color:#0925a7">@ViewBag.DecryptedCardNumber</span></p>
+            <p>Expiry Month: <span style="color:#0925a7">@ViewBag.DecryptedExpMonth</span></p>
+            <p>Expiry Year: <span style="color:#0925a7">@ViewBag.DecryptedExpYear</span></p>
+        </div>
+
